@@ -13,6 +13,7 @@ This is API breaking update! Please consult readme & adjust your configs!
 * [FEATURE] dns_forward_max variable in dnsmasq class
 * [FEATURE] ::dhcp now supports mode => setting
 * [FEATURE] ::dhcpmatch parameter addded.
+* [FEATURE] ::dhcpstatic support now tags
 * [FIX] proper license name
 
 ### 2.6.1

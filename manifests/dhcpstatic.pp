@@ -3,6 +3,7 @@
 define dnsmasq::dhcpstatic (
   $mac,
   $ip,
+  $paramtag,
 ) {
   $mac_real = downcase($mac)
 
@@ -12,6 +13,11 @@ define dnsmasq::dhcpstatic (
     "Expect MAC address, e.g. 11:22:33:44:55:66, for mac. Got ${mac}")
 
   include dnsmasq
+
+  $hosttag = $paramtag ? {
+    undef   => '',
+    default => ",set:${paramtag}",
+  }
 
   concat::fragment { "dnsmasq-staticdhcp-${name}":
     order   => '05',
