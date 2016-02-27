@@ -10,6 +10,7 @@
     'dhcp_boot',
     'dhcp_no_override',
     'dhcp_leasefile',
+    'dhcp_options',
     'dns_forward_max',
     'dnsmasq_confdir',
     'domain',
@@ -180,6 +181,11 @@ dns-forward-max=<%= @dns_forward_max %>
         print_config  = ''
         config_prefix = config_value ? '' : '# '      # defined, but false maybe?
 -%>
+<% if @dhcp_options -%>
+<% Array(@dhcp_options).compact.each do |option| -%>
+dhcp-option=<%= option %>
+<% end -%>
+<% end -%>
 <%= config_prefix %><%= config_key.gsub('_','-') %><%= print_config %>
 <%
       elsif config_value.is_a? Array                  # if it's an array ...
