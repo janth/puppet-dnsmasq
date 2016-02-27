@@ -26,6 +26,8 @@ class dnsmasq (
   $interface                = undef,
   $listen_address           = undef,
   $local_ttl                = undef,
+  $log_queries              = undef,
+  $log_dhcp                 = undef,
   $manage_tftp_root         = false,
   $max_ttl                  = undef,
   $max_cache_ttl            = undef,
@@ -170,4 +172,3 @@ class dnsmasq (
     }
   }
 }
-

@@ -19,6 +19,8 @@
     'interface',
     'listen_address',
     'local_ttl',
+    'log_queries',
+    'log_dhcp',
     'max_ttl',
     'max_cache_ttl',
     'neg_ttl',
@@ -119,6 +121,12 @@ user=<%= @run_as_user %>
 <% if @local_ttl -%>
 local-ttl=<%= @local_ttl %>
 <% end -%>
+<% if @log_queries -%>
+log-queries
+<% end -%>
+<% if @log_dhcp -%>
+log_dhcp
+<% end -%>
 <% if @neg_ttl -%>
 neg-ttl=<%= @neg_ttl %>
 <% end -%>
@@ -191,4 +199,3 @@ dns-forward-max=<%= @dns_forward_max %>
   end
 -%>
 # EXTENDED CONFIG END
-
