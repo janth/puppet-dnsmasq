@@ -45,7 +45,7 @@ class dnsmasq (
   $service_ensure           = 'running',
   $strict_order             = true,
   $tftp_root                = '/var/lib/tftpboot',
-  $tftp_no_block_size       = false,
+  $tftp_no_blocksize        = false,
 ) inherits dnsmasq::params {
 
   ## VALIDATION
