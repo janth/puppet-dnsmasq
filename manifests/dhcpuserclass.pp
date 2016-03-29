@@ -1,5 +1,5 @@
 # Create an dnsmasq dhcp option (--dhcp-option).
-define dnsmasq::userclass (
+define dnsmasq::dhcpuserclass (
   $user_class,
   $tag = undef,
 ) {
