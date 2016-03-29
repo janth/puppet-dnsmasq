@@ -67,7 +67,7 @@ class dnsmasq (
     $read_ethers,
     $reload_resolvconf,
     $restart,
-    $tftp_no_block_size
+    $tftp_no_blocksize
   )
   validate_hash($config_hash)
   validate_re($service_ensure,'^(running|stopped)$')
