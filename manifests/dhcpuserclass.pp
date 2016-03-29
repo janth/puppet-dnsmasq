@@ -1,11 +1,11 @@
 # Create an dnsmasq dhcp option (--dhcp-option).
 define dnsmasq::userclass (
   $user_class,
-  $set = undef,
+  $tag = undef,
 ) {
-  $set_real = $set ? {
+  $tag_real = $tag ? {
     undef   => '',
-    default => "set:${set},",
+    default => $tag,
   }
 
   include dnsmasq
@@ -13,7 +13,7 @@ define dnsmasq::userclass (
   concat::fragment { "dnsmasq-dhcpoption-${name}":
     order   => '12',
     target  => 'dnsmasq.conf',
-    content => template('dnsmasq/userclass.erb'),
+    content => template('dnsmasq/dhcpuserclass.erb'),
   }
 
 }
