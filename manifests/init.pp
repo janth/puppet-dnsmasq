@@ -45,6 +45,7 @@ class dnsmasq (
   $service_ensure           = 'running',
   $strict_order             = true,
   $tftp_root                = '/var/lib/tftpboot',
+  $tftp_no_block_size       = false,
 ) inherits dnsmasq::params {
 
   ## VALIDATION
@@ -65,7 +66,8 @@ class dnsmasq (
     $strict_order,
     $read_ethers,
     $reload_resolvconf,
-    $restart
+    $restart,
+    $tftp_no_block_size
   )
   validate_hash($config_hash)
   validate_re($service_ensure,'^(running|stopped)$')
