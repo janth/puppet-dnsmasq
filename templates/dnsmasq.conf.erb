@@ -33,6 +33,7 @@
     'resolv_file',
     'strict_order',
     'tftp_root',
+    'tftp_no_blocksize',
   ].each do |key_instance|
     [ key_instance, key_instance.gsub('_','-') ].each do |key|
       if @config_hash.include? key
@@ -57,6 +58,9 @@ port=<%= @port %>
 enable-tftp
 tftp-root=<%= @tftp_root -%>
 <% end %>
+<% if @tftp_no_blocksize -%>
+tftp-no-blocksize
+<% end -%>
 <% if @dhcp_boot -%>
 dhcp-boot=<%= @dhcp_boot %>
 <% end -%>
