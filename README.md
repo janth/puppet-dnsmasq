@@ -130,11 +130,13 @@ dnsmasq::dhcp { 'my-awesome-subnet':
 
 Will add static DHCP record to DHCP server with hostname.
 Please be aware that example-host will also be used as DNS name.
+The parameter "paramtag" is optional.
 
 ```puppet
 dnsmasq::dhcpstatic { 'example-host':
-  mac => 'DE:AD:BE:EF:CA:FE',
-  ip  => '192.168.1.10',
+  mac      => 'DE:AD:BE:EF:CA:FE',
+  ip       => '192.168.1.10',
+  paramtag => 'internal',
 }
 ```
 
