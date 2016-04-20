@@ -11,6 +11,7 @@ class dnsmasq (
   $dhcp_boot                = undef,
   $dhcp_leasefile           = undef,
   $dhcp_no_override         = false,
+  $dhcp_options             = undef,
   $domain                   = undef,
   $domain_needed            = true,
   $dns_forward_max          = undef,
@@ -26,6 +27,8 @@ class dnsmasq (
   $interface                = undef,
   $listen_address           = undef,
   $local_ttl                = undef,
+  $log_queries              = undef,
+  $log_dhcp                 = undef,
   $manage_tftp_root         = false,
   $max_ttl                  = undef,
   $max_cache_ttl            = undef,
@@ -170,4 +173,3 @@ class dnsmasq (
     }
   }
 }
-

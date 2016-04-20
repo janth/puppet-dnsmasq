@@ -10,6 +10,7 @@
     'dhcp_boot',
     'dhcp_no_override',
     'dhcp_leasefile',
+    'dhcp_options',
     'dns_forward_max',
     'dnsmasq_confdir',
     'domain',
@@ -19,6 +20,8 @@
     'interface',
     'listen_address',
     'local_ttl',
+    'log_queries',
+    'log_dhcp',
     'max_ttl',
     'max_cache_ttl',
     'neg_ttl',
@@ -119,6 +122,12 @@ user=<%= @run_as_user %>
 <% if @local_ttl -%>
 local-ttl=<%= @local_ttl %>
 <% end -%>
+<% if @log_queries -%>
+log-queries
+<% end -%>
+<% if @log_dhcp -%>
+log-dhcp
+<% end -%>
 <% if @neg_ttl -%>
 neg-ttl=<%= @neg_ttl %>
 <% end -%>
@@ -172,6 +181,11 @@ dns-forward-max=<%= @dns_forward_max %>
         print_config  = ''
         config_prefix = config_value ? '' : '# '      # defined, but false maybe?
 -%>
+<% if @dhcp_options -%>
+<% Array(@dhcp_options).compact.each do |option| -%>
+dhcp-option=<%= option %>
+<% end -%>
+<% end -%>
 <%= config_prefix %><%= config_key.gsub('_','-') %><%= print_config %>
 <%
       elsif config_value.is_a? Array                  # if it's an array ...
@@ -191,4 +205,3 @@ dns-forward-max=<%= @dns_forward_max %>
   end
 -%>
 # EXTENDED CONFIG END
-
